@@ -1,7 +1,7 @@
 {
   "short_name": "Tunepani",
   "name": "Tunepani",
-  "description": "Tuning your timpani made easy!"
+  "description": "Timpani tuning made easy!",
   "icons": [
     {
       "src": "tunepani_icon64.png",
@@ -22,6 +22,6 @@
   "start_url": "/index.html",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
   "orientation": "portrait"
 }

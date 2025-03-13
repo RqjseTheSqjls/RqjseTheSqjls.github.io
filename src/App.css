@@ -1,0 +1,491 @@
+/* App.css */
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #ebd6ba; /* light tan */
+  color: #3a3a3a;
+}
+
+/* Dark Mode Overrides */
+.dark-mode {
+  background: #444; /* dark gray */
+  color: #e9ebe8;
+}
+
+.dark-mode .container {
+  background: #666; /* mid-gray in dark mode */
+}
+
+.dark-mode .header {
+  background: #555;
+}
+
+.dark-mode .sidebar {
+  background: linear-gradient(135deg, #666, #555);
+  color: #e9ebe8;
+}
+.dark-mode .sidebar .menu-button {
+  color: #e9ebe8;
+}
+
+.dark-mode .config-input {
+  border: 1px solid #777;
+  background: #555;
+  color: #e9ebe8;
+}
+.dark-mode .config-button {
+  background: #555;
+  color: #e9ebe8;
+}
+.dark-mode .config-button:hover {
+  background: #666;
+}
+.dark-mode .load-button {
+  color: #e9ebe8;
+}
+.dark-mode .overwrite-button {
+  color: #e9ebe8;
+}
+.dark-mode .config-delete {
+  color: #ff8080;
+}
+
+.dark-mode .drum-area {
+  background: #666;
+  border-color: #777;
+}
+
+.dark-mode .drum-circle {
+  background: #888; /* lighter dark tone for drum buttons */
+  color: #e9ebe8;
+}
+
+.dark-mode .trash-bin {
+  background: #666;
+  color: #e9ebe8;
+}
+.dark-mode .trash-bin:hover {
+  background: #555;
+}
+
+.dark-mode .main-content {
+  background: #666;
+  color: #e9ebe8;
+}
+
+.dark-mode .gauge,
+.dark-mode .gauge-label,
+.dark-mode .gauge-note,
+.dark-mode .volume-control label {
+  color: #e9ebe8;
+}
+.dark-mode .gauge {
+  background: #555;
+}
+.dark-mode .gauge-marker {
+  background: #e9ebe8;
+}
+
+/* Container & Main Wallpaper */
+/* Light Mode: container background is gray (#c4c3c4) and drum buttons use light tan (#ebd6ba) */
+.container {
+  padding: 20px;
+  position: relative;
+  background: #c4c3c4;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #993e18;
+  padding: 10px;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1100;
+}
+
+.menu-button,
+.add-drum-icon {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* Overlay for side menu */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 1050;
+}
+
+/* Sidebar for Pieces */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(135deg, #e9ebe8, #ebd6ba);
+  color: #474748;
+  padding: 20px;
+  z-index: 1100;
+  overflow-y: auto;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+}
+
+.dark-mode .sidebar {
+  background: linear-gradient(135deg, #666, #555);
+  color: #e9ebe8;
+}
+
+.sidebar .menu-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #474748;
+}
+
+.sidebar h3 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.config-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.config-button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+  background: #993e18;
+  color: #ebd6ba;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.config-button:hover {
+  background: #b88368;
+}
+
+.config-list {
+  list-style: none;
+  padding: 0;
+}
+
+.config-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.load-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #474748;
+  text-align: left;
+  flex: 1;
+  padding: 4px;
+}
+
+.pencil-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 5px;
+  color: inherit;
+}
+
+.overwrite-button {
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #474748;
+  padding: 2px 4px;
+  transition: color 0.2s ease;
+}
+
+.overwrite-button:hover {
+  color: #993e18;
+}
+
+.config-delete {
+  font-size: 1rem;
+  color: #d15c5c;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Rename container for config items */
+.rename-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.rename-container input {
+  width: 100%;
+  padding: 6px 30px 6px 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.confirm-rename-button {
+  position: absolute;
+  right: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #474748;
+}
+
+/* Settings Menu in Sidebar (at bottom of Pieces menu) */
+.settings-menu {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.settings-menu h4 {
+  margin-bottom: 10px;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Main content */
+.main-content {
+  margin-top: 20px;
+  background: #c4c3c4;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.dark-mode .main-content {
+  background: #666;
+}
+
+/* Drum area styling */
+.drum-area {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border: 1px solid #474748;
+  margin-top: 10px;
+  background: #c4c3c4;
+  overflow: hidden;
+}
+
+.dark-mode .drum-area {
+  background: #666;
+  border-color: #777;
+}
+
+.drum-container {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.drum-button {
+  background: none;
+  border: none;
+  padding: 0;
+  width: 60px;
+  height: 60px;
+  outline: none;
+  touch-action: none;
+}
+
+/* Drum Circle: switch colors */
+.drum-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ebd6ba; /* light tan for drum buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000; /* dark text */
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.dark-mode .drum-circle {
+  background: #888;
+  color: #e9ebe8;
+}
+
+.drum-circle:hover {
+  transform: scale(1.05);
+}
+
+/* Context Menu Styling */
+.context-menu {
+  position: fixed;
+  background: #e9ebe8;
+  border: 1px solid #993e18;
+  border-radius: 4px;
+  z-index: 10000;
+  min-width: 80px;
+  max-height: calc((100vh - 20px) / 2); /* Half the available height */
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  animation: fadeIn 0.2s ease;
+}
+
+.context-menu-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  text-align: center;
+  color: #3a3a3a;
+  transition: background 0.2s ease;
+}
+
+.context-menu-item:hover {
+  background: #b88368;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Trash Bin */
+.trash-bin {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 100px;
+  background: #474748;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ebd6ba;
+  font-size: 2rem;
+  z-index: 1000;
+  opacity: 0.9;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.trash-bin:hover {
+  background: #993e18;
+  color: #ebd6ba;
+}
+
+/* Gauge Styling */
+.gauge-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gauge-label {
+  font-size: 0.9rem;
+  margin: 0 10px;
+}
+
+.gauge {
+  position: relative;
+  width: 200px;
+  height: 10px;
+  background: #c4c3c4;
+  border-radius: 5px;
+}
+
+.gauge-marker {
+  position: absolute;
+  top: -5px;
+  width: 4px;
+  height: 20px;
+  background: #993e18;
+  border-radius: 2px;
+  transition: left 0.1s ease;
+}
+
+.gauge-note {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* Volume Control */
+.volume-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Tutorial Overlay */
+.tutorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20000;
+}
+
+.tutorial-modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  color: #333;
+}
+
+.dark-mode .tutorial-modal {
+  background: #222;
+  color: #e9ebe8;
+}
